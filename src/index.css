@@ -2,3 +2,45 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  @font-face {
+    font-family: Montserrat;
+    font-weight: 400;
+    src: url(./fonts/Montserrat-Regular.ttf) format("truetype");
+  }
+  
+  @font-face {
+    font-family: Montserrat;
+    font-weight: 700;
+    src: url(./fonts/Montserrat-Bold.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: Montserrat;
+    font-style: italic;
+    src: url(./fonts/Montserrat-Italic.ttf) format("truetype");
+  }
+  
+  @font-face {
+    font-family: OpenSans;
+    font-weight: 400;
+    src: url(./fonts/OpenSans-Regular.ttf) format("truetype");
+  }
+  
+  @font-face {
+    font-family: OpenSans;
+    font-weight: 700;
+    src: url(./fonts/OpenSans-Bold.ttf) format("truetype");
+  }
+  
+  @font-face {
+    font-family: OpenSans;
+    font-style: italic;
+    src: url(./fonts/OpenSans-Italic.ttf) format("truetype");
+  }
+}
+
+.darken:hover {
+  filter: brightness(85%) contrast(115%);
+}

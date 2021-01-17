@@ -1,9 +1,18 @@
-
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import smoothscroll from 'smoothscroll-polyfill'
+import Home from './components/Home'
 function App() {
+  //make smooth scroll work on all browsers
+  smoothscroll.polyfill()
+
   return (
-    <div className="text-6xl">
-      Hello World!
-    </div>
+    <Router>
+      <Switch>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   )
 }
 
