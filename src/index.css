@@ -24,6 +24,12 @@
   
   @font-face {
     font-family: OpenSans;
+    font-weight: 300;
+    src: url(./fonts/OpenSans-Light.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: OpenSans;
     font-weight: 400;
     src: url(./fonts/OpenSans-Regular.ttf) format("truetype");
   }
@@ -39,8 +45,31 @@
     font-style: italic;
     src: url(./fonts/OpenSans-Italic.ttf) format("truetype");
   }
+
+  @font-face {
+    font-family: Merriweather;
+    font-weight: 400;
+    src: url(./fonts/Merriweather-Regular.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: Roboto;
+    font-weight: 300;
+    src: url(./fonts/Roboto-Light.ttf) format("truetype");
+  }
+
+  @font-face {
+    font-family: Roboto;
+    font-weight: 400;
+    src: url(./fonts/Roboto-Regular.ttf) format("truetype");
+  }
 }
 
 .darken:hover {
   filter: brightness(85%) contrast(115%);
+}
+
+.fadeMenuIn {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }

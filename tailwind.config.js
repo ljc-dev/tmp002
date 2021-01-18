@@ -11,6 +11,8 @@ module.exports = {
       fontFamily: {
         "open": ["OpenSans",],
         "mont": ["Montserrat",],
+        "merri": ["Merriweather",],
+        "robo": ["Roboto",],
       },
     },
   },
