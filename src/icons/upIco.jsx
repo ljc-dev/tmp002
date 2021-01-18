@@ -1,14 +1,14 @@
-import { FaFacebookF } from 'react-icons/fa'
+import { HiOutlineChevronUp } from 'react-icons/hi'
 import { IconContext } from 'react-icons/lib'
 
-const FacebookIco = ({ classes = "" }) => {
+const UpIco = ({ classes = "" }) => {
   return (
     <IconContext.Provider value={{
       className: classes,
     }}>
-      <FaFacebookF aria-hidden="true" />
+      <HiOutlineChevronUp aria-hidden="true" />
     </IconContext.Provider>
   );
 }
 
-export default FacebookIco;
+export default UpIco;

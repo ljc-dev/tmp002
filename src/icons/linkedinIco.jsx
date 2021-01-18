@@ -6,7 +6,7 @@ const LinkedInIco = ({ classes = "" }) => {
     <IconContext.Provider value={{
       className: classes,
     }}>
-      <FaLinkedinIn />
+      <FaLinkedinIn aria-hidden="true" />
     </IconContext.Provider>
   );
 }

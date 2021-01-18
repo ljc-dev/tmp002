@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import { useScrollAway } from "../hooks/handleMenuScrollAway"
+import { useScrollAway } from "../utils/handleMenuScrollAway"
 import MenuIco from "../icons/menuIco"
 import UserIco from "../icons/userIco"
 import { Link } from 'react-router-dom'

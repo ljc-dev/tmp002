@@ -6,7 +6,7 @@ const UserIco = ({ classes = "" }) => {
     <IconContext.Provider value={{
       className: classes,
     }}>
-      <FaUserCircle />
+      <FaUserCircle aria-hidden="true" />
     </IconContext.Provider>
   );
 }

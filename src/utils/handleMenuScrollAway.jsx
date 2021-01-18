@@ -43,5 +43,5 @@ function handleScrollAway(menuRef) {
   }
   scrollEndTimeout = setTimeout(() => {
     lastScrolledPx = scrolledPx
-  }, 250)
+  }, 200)
 }

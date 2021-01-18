@@ -6,7 +6,7 @@ const InstaIco = ({ classes = "" }) => {
     <IconContext.Provider value={{
       className: classes,
     }}>
-      <AiOutlineInstagram />
+      <AiOutlineInstagram aria-hidden="true" />
     </IconContext.Provider>
   );
 }
