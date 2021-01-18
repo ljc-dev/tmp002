@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react"
 
 let lastScrolledPx = 0
 let scrollEndTimeout
+const GOLDEN_SCROLLED_DISTANCE = 100
 
 export function useScrollAway() {
   const menuRef = useRef(null)
@@ -19,7 +20,7 @@ function handleScrollAway(menuRef) {
   if (scrolledPx - lastScrolledPx > 0) {
     // scrolled down
     // console.log("down");
-    if (scrolledPx - lastScrolledPx > 200 && !menuRef.current.classList.contains("opacity-0")) {
+    if (scrolledPx - lastScrolledPx > GOLDEN_SCROLLED_DISTANCE && !menuRef.current.classList.contains("opacity-0")) {
       menuRef.current.classList.add("opacity-0")
       setTimeout(() => {
         menuRef.current.classList.add("hidden")
@@ -28,7 +29,7 @@ function handleScrollAway(menuRef) {
   } else {
     // scrolled up
     // console.log("up");
-    if (scrolledPx - lastScrolledPx < -200 && menuRef.current.classList.contains("hidden")) {
+    if (scrolledPx - lastScrolledPx < -GOLDEN_SCROLLED_DISTANCE && menuRef.current.classList.contains("hidden")) {
       menuRef.current.classList.remove("hidden")
     }
     setTimeout(() => {

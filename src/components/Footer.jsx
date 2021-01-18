@@ -27,17 +27,20 @@ function checkValididty(e) {
 const Footer = () => {
   const subConfirmRef = useRef(null)
 
+
   function handleSubmit(e) {
     e.preventDefault()
-    subConfirmRef.current.classList.remove("hidden")
+    subConfirmRef.current.innerText = "Thanks for subscribing!"
+    subConfirmRef.current.classList.remove("opacity-0")
     setTimeout(() => {
-      subConfirmRef.current.classList.add("hidden")
+      subConfirmRef.current.classList.add("opacity-0")
+      subConfirmRef.current.innerText = ""
     }, 2000)
   }
 
   return (
-    <div className="grid grid-cols-1 pb-10">
-      <p className="text-xl px-4 mt-20 font-robo font-light">Get Great Business Tips to Your Mailbox. Subscribe.</p>
+    <div className=" border-t border-gray-600 grid grid-cols-1 pb-10">
+      <p className="text-lg px-4 mt-12 font-robo font-light">Get Great Business Tips to Your Mailbox. Subscribe.</p>
       <form onSubmit={handleSubmit} className="mt-4 px-4 grid grid-cols-1">
         <label htmlFor="emailSub">Your email *</label>
         <div className="flex mt-4 ">
@@ -45,9 +48,9 @@ const Footer = () => {
           <button className="capitalize px-3 rounded-r-full border border-gray-700 font-robo font-light">subscribe</button>
         </div>
       </form>
-      <p ref={subConfirmRef} className="hidden text-gray-500 font-robo font-light mt-2 px-4 text-sm tracking-tight">Thanks for subscribing!</p>
-      <div className="mt-16 px-4 grid grid-cols-1 font-robo font-light text-sm">
-        <a className=" font-mont" href="tel:123-456-7890">123-456-7890</a>
+      <p ref={subConfirmRef} className="opacity-0 h-4 text-gray-500 font-robo font-light mt-2 px-4 text-sm tracking-tight"></p>
+      <div className="mt-12 px-4 flex flex-col items-start font-robo font-light text-sm">
+        <a className="font-mont" href="tel:123-456-7890">123-456-7890</a>
         <a className="mt-2" href="mailto:Info@mysite.com">Info@mysite.com</a>
         <p className="mt-2">500 Terry Francois St <br />San Francisco, CA 94158</p>
       </div>

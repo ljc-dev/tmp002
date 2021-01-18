@@ -1,15 +1,6 @@
-function getBlogComponent(blog) {
-  const { src, title, price, duration, path } = blog
-  return (
-    <div key={title} className="px-4 mt-12">
-      <img className="w-full h-48 object-cover" src={src} alt={title} />
-      <h3 className="mt-4 capitalize font-robo font-light text-xl">{title}</h3>
-      <p className="mt-1 capitalize font-robo font-light text-sm">{duration}</p>
-      <p className="mt-4 capitalize font-robo font-light text-sm">{price}</p>
-      <button className=" mt-4 w-full py-1.5 border border-gray-600 rounded-full font-robo font-light capitalize hover:bg-gray-900 hover:text-gray-50 transition duration-150 ease-in">view</button>
-    </div>
-  )
-}
+import { useHistory } from "react-router-dom"
+import ProgramsThumbComponent from "./BlogsThumbComponent"
+
 
 function getPostComponent(post) {
   const { src, title, path } = post
@@ -28,7 +19,7 @@ function getPostComponent(post) {
 function getTestimonialComponent(t) {
   const { text, author, } = t
   return (
-    <div key={author} className="py-4 px-4 border border-gray-400 rounded-2xl font-robo font-light">
+    <div key={author} className="py-4 px-2 border border-gray-400 rounded-2xl font-robo font-light">
       <p className="text-lg leading-relaxed text-left">
         {text}
       </p>
@@ -38,11 +29,6 @@ function getTestimonialComponent(t) {
 
 }
 
-const blogs = [
-  { src: "/assets/abstract-1.jpg", title: "how to generate traffic", price: "free", duration: "10 days", path: "/", },
-  { src: "/assets/abstract-0.jpg", title: "it's all about sales", price: "free", duration: "1 week", path: "/", },
-  { src: "/assets/portrait.jpg", title: "social media bootcamp", price: "free", duration: "3 days", path: "/", },
-]
 
 const posts = [
   { src: "/assets/tech-2.jpg", title: "The Secret of B2B Sales", path: "/", },
@@ -62,14 +48,25 @@ const testimonials = [
   },
 ]
 
+
 const Home = () => {
+  const history = useHistory()
+
+  function handleProgramsClick() {
+    history.push("/programs")
+  }
+
+  function handleAboutMeClick() {
+    history.push("/about")
+  }
+
   return (
     <div className="w-full grid grid-cols-1 mt-24">
       <div className="grid grid-cols-1 pb-8 border-b border-gray-700">
         <h1 className=" mx-4 text-4xl font-robo font-light w-64 sm:w-full">Lead. Achieve.
 Succeed.</h1>
-        <p className=" mx-4 font-robo font-light text-sm mt-12 w-64 sm:w-full">Online business development program that will boost your business growth.</p>
-        <button className=" mx-4 mt-8 w-32 py-1 border border-gray-600 rounded-full font-robo font-light capitalize">
+        <p className=" mx-4 font-robo font-light text-sm mt-12 w-64 sm:w-full leading-relaxed">Online business development program that will boost your business growth.</p>
+        <button onClick={handleProgramsClick} className=" mx-4 mt-6 w-32 py-1 border border-gray-600 rounded-full font-robo font-light capitalize">
           learn more
       </button>
         <img className="mt-10 w-full h-80 object-cover" src="/assets/bridge.jpg" alt="bridge the gap whatever" />
@@ -77,18 +74,16 @@ Succeed.</h1>
       <div className="grid grid-cols-1 mt-16 pb-8 border-b border-gray-700">
         <h2 className=" mx-4 text-2xl font-robo font-light w-64 sm:w-full">About</h2>
         <p className=" mx-4 font-robo font-light from-gray-700 text-sm leading-relaxed tracking-wide mt-12">I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me to add your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.</p>
-        <button className=" mx-4 mt-6 w-32 py-1 border border-gray-600 rounded-full font-robo font-light capitalize">
+        <button onClick={handleAboutMeClick} className=" mx-4 mt-6 w-32 py-1 border border-gray-600 rounded-full font-robo font-light capitalize">
           read more
       </button>
         <img className="mt-10 w-full h-96 object-cover" src="/assets/portrait.jpg" alt="it's me" />
       </div>
-      <div className="grid grid-cols-1 mt-16 pb-8">
+      <div className="grid grid-cols-1 mt-20 pb-6">
         <h2 className=" mx-4 text-2xl font-robo font-light w-64 sm:w-full">Join My Online Business Development Programs</h2>
         <p className=" mx-4 font-robo font-light from-gray-700 text-sm leading-relaxed tracking-wide mt-12">I'm a paragraph. Click here to add your own text and edit me. Let your users get to know you.</p>
-        <div className="mt-8">
-          {
-            blogs.map(blog => getBlogComponent(blog))
-          }
+        <div className="mt-20 grid grid-cols-1 gap-y-12">
+          <ProgramsThumbComponent />
         </div>
       </div>
       <div className="mt-8">
