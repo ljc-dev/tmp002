@@ -1,5 +1,7 @@
 import { useEffect, useRef } from "react"
 
+let lastScrolledPx = 0
+let scrollEndTimeout
 
 export function useScrollAway() {
   const menuRef = useRef(null)
@@ -13,8 +15,20 @@ export function useScrollAway() {
 function handleScrollAway(menuRef) {
   const scrolledPx = document.documentElement.scrollTop
   // console.log(scrolledPx)
-  if (scrolledPx < 100) {
-    if (menuRef.current.classList.contains("hidden")) {
+  // console.log(scrolledPx, lastScrolledPx);
+  if (scrolledPx - lastScrolledPx > 0) {
+    // scrolled down
+    // console.log("down");
+    if (scrolledPx - lastScrolledPx > 200 && !menuRef.current.classList.contains("opacity-0")) {
+      menuRef.current.classList.add("opacity-0")
+      setTimeout(() => {
+        menuRef.current.classList.add("hidden")
+      }, 400)
+    }
+  } else {
+    // scrolled up
+    // console.log("up");
+    if (scrolledPx - lastScrolledPx < -200 && menuRef.current.classList.contains("hidden")) {
       menuRef.current.classList.remove("hidden")
     }
     setTimeout(() => {
@@ -22,12 +36,12 @@ function handleScrollAway(menuRef) {
         menuRef.current.classList.remove("opacity-0")
       }
     }, 100)
-  } else {
-    if (!menuRef.current.classList.contains("opacity-0")) {
-      menuRef.current.classList.add("opacity-0")
-      setTimeout(() => {
-        menuRef.current.classList.add("hidden")
-      }, 400)
-    }
   }
+
+  if (scrollEndTimeout) {
+    clearTimeout(scrollEndTimeout)
+  }
+  scrollEndTimeout = setTimeout(() => {
+    lastScrolledPx = scrolledPx
+  }, 250)
 }
