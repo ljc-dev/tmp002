@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react"
 
 const GOLDEN_RATIO = 0.4
+let lockTimeout
 
 function useScrollToTop() {
   const scrollToTopRef = useRef(null)
@@ -18,16 +19,22 @@ function handleScroll(scrollToTopRef) {
   if ((scrollTop / scrollTotal) > GOLDEN_RATIO) {
     if (scrollToTopRef.current.classList.contains("hidden")) {
       scrollToTopRef.current.classList.remove("hidden")
-    }
-    setTimeout(() => {
-      if (scrollToTopRef.current.classList.contains("opacity-0")) {
-        scrollToTopRef.current.classList.remove("opacity-0")
+      if (lockTimeout) {
+        clearTimeout(lockTimeout)
       }
-    }, 100)
+      lockTimeout = setTimeout(() => {
+        if (scrollToTopRef.current.classList.contains("opacity-0")) {
+          scrollToTopRef.current.classList.remove("opacity-0")
+        }
+      }, 100)
+    }
   } else {
     if (!scrollToTopRef.current.classList.contains("opacity-0")) {
       scrollToTopRef.current.classList.add("opacity-0")
-      setTimeout(() => {
+      if (lockTimeout) {
+        clearTimeout(lockTimeout)
+      }
+      lockTimeout = setTimeout(() => {
         scrollToTopRef.current.classList.add("hidden")
       }, 300)
     }
