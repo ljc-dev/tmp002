@@ -1,4 +1,4 @@
-import { useHistory, useRouteMatch } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 
 const programs = [
   { src: "/assets/abstract-1.jpg", title: "how to generate traffic", price: "free", duration: "10 days", path: "/program1", },
@@ -8,11 +8,9 @@ const programs = [
 
 const ProgramsThumbComponent = () => {
   const history = useHistory()
-  const { url } = useRouteMatch()
 
   function goToProgramDetails(path) {
-    console.log(url, path);
-    return history.push(url + path)
+    return history.push("/programs" + path)
   }
 
   return (
