@@ -3,6 +3,12 @@ import { useEffect, useRef } from "react"
 const GOLDEN_RATIO = 0.4
 let lockTimeout
 
+function useAutoScrollToTop() {
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+}
+
 function useScrollToTop() {
   const scrollToTopRef = useRef(null)
   useEffect(() => {
@@ -42,5 +48,5 @@ function handleScroll(scrollToTopRef) {
 }
 
 export {
-  useScrollToTop,
+  useScrollToTop, useAutoScrollToTop,
 }

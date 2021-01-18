@@ -1,3 +1,5 @@
+import { useAutoScrollToTop } from "../hooks/scrollHooks"
+
 const posts = [
   { src: "/assets/tech-2.jpg", title: "The Secret of B2B Sales", text: "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your audience to continue reading.", date: "Jan 4", path: "/", },
   { src: "/assets/post-2.jpg", title: "What is a SMART Goal?", text: "Create a blog post subtitle that summarizes your post in a few short, punchy sentences and entices your audience to continue reading.", date: "Jan 4", path: "/", },
@@ -10,6 +12,7 @@ const posts = [
 
 function getPostComponent(post) {
   const { src, title, text, date, path } = post
+
   return (
     <div key={title} className="px-4 mt-8">
       <button className="w-full">
@@ -27,8 +30,10 @@ function getPostComponent(post) {
 }
 
 const Blog = () => {
-  return (
 
+  useAutoScrollToTop()
+
+  return (
     <div className="mt-12">
       <div className="pb-8 border-b border-gray-600">
         <h1 className="px-6 mt-24 capitalize font-robo font-light text-4xl">blog</h1>

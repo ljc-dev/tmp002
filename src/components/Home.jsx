@@ -1,4 +1,5 @@
 import { useHistory } from "react-router-dom"
+import { useAutoScrollToTop } from "../hooks/scrollHooks"
 import ProgramsThumbComponent from "./BlogsThumbComponent"
 
 
@@ -59,6 +60,8 @@ const Home = () => {
   function handleAboutMeClick() {
     history.push("/about")
   }
+
+  useAutoScrollToTop()
 
   return (
     <div className="w-full grid grid-cols-1 mt-24">

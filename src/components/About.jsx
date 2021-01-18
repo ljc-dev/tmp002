@@ -1,4 +1,9 @@
+import { useAutoScrollToTop } from "../hooks/scrollHooks";
+
 const About = () => {
+
+  useAutoScrollToTop()
+
   return (
     <div className="mt-12">
       <h1 className="px-6 mt-24 capitalize font-robo font-light text-4xl">about me</h1>

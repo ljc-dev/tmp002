@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { useAutoScrollToTop } from "../hooks/scrollHooks";
 
 const Contact = () => {
   const subConfirmRef = useRef(null)
@@ -41,6 +42,8 @@ const Contact = () => {
       e.target.classList.add("border-gray-700")
     }
   }
+
+  useAutoScrollToTop()
 
   return (
     <div className="mt-12">

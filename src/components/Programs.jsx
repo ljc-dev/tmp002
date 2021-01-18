@@ -1,6 +1,9 @@
+import { useAutoScrollToTop } from "../hooks/scrollHooks";
 import ProgramsThumbComponent from "./BlogsThumbComponent";
 
 const Programs = () => {
+
+  useAutoScrollToTop()
   return (
     <div className="mt-12">
       <div className=" border-b border-gray-600 pb-10">
