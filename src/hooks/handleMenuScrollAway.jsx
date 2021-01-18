@@ -12,7 +12,7 @@ export function useScrollAway() {
 
 function handleScrollAway(menuRef) {
   const scrolledPx = document.documentElement.scrollTop
-  console.log(scrolledPx)
+  // console.log(scrolledPx)
   if (scrolledPx < 100) {
     if (menuRef.current.classList.contains("hidden")) {
       menuRef.current.classList.remove("hidden")

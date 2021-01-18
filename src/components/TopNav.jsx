@@ -37,7 +37,7 @@ const TopNav = () => {
   }
 
   return (
-    <div ref={menuRef} className="flex fixed top-0 inset-x-0 w-full justify-between h-14 items-center px-4 transform transition-opacity duration-300">
+    <div ref={menuRef} className="flex fixed top-0 bg-white inset-x-0 w-full justify-between h-14 items-center px-4 transform transition-opacity duration-300">
       <p className="uppercase text-xl font-open">leah webb</p>
       <button onClick={handleMenuBtnClick} className="relative flex w-8 h-8 justify-center items-center" style={{ zIndex: 999 }}>
         <MenuIco isActive={isActiveState} />
