@@ -11,6 +11,7 @@ import Programs from './components/Programs'
 import ScrollToTopBtn from './components/ScrollToTopBtn'
 import TopNav from './components/TopNav'
 import TryDraggable from './components/TryDraggable'
+import TryRifm from './components/TryRifm'
 function App() {
   //make smooth scroll work on all browsers
   smoothscroll.polyfill()
@@ -38,7 +39,7 @@ function App() {
           <Blog />
         </Route>
         <Route path="/">
-          <TryDraggable />
+          <TryRifm />
         </Route>
       </Switch>
       <Footer />
