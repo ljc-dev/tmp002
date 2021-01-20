@@ -16,7 +16,8 @@ function getProgramDetails(programId) {
 }
 
 const ProgramDetails = () => {
-  const [startDate, setStartDate] = useState(new Date())
+  const today = new Date()
+  const [startDate, setStartDate] = useState(today)
   const { params } = useRouteMatch()
   const { programId } = params
   console.log(programId);
@@ -53,7 +54,12 @@ const ProgramDetails = () => {
         <div className="mt-6 w-9 h-9 rounded-full bg-gray-200"></div>
         <h2 className="mt-12 text-xl font-robo font-light">Pick Your Start Date</h2>
         <p className="mt-6 text-sm font-robo font-light">Select the date when you want to start</p>
-        <DatePicker className="mt-2 pl-4 self-start border border-gray-600 py-2" selected={startDate} onChange={(date) => setStartDate(date)} />
+        <DatePicker className="mt-2 pl-4 self-start border border-gray-600 py-2"
+          selected={startDate}
+          onChange={(date) => setStartDate(date)}
+          showPopperArrow={false}
+          minDate={today}
+        />
         <h2 className="mt-12 text-xl font-robo font-light">Price</h2>
         <p className="mt-6 text-base font-robo font-light capitalize">{price}</p>
         <button onClick={handleJoinClick} className="mt-10 w-full py-2 border border-gray-600 hover:bg-gray-800 hover:text-gray-50 rounded-full font-robo font-light capitalize transition-colors duration-200">

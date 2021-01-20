@@ -13,10 +13,12 @@
     "react": "^17.0.1",
     "react-datepicker": "^3.4.1",
     "react-dom": "^17.0.1",
+    "react-draggable": "^4.4.3",
     "react-icons": "^4.1.0",
     "react-router-dom": "^5.2.0",
     "react-router-hash-link": "^2.3.1",
     "react-scripts": "4.0.1",
+    "react-slick": "^0.27.14",
     "smoothscroll-polyfill": "^0.4.4",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.0.2",
     "web-vitals": "^0.2.4"

@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react"
 
 let lastScrolledPx = 0
 let scrollEndTimeout
-const GOLDEN_SCROLLED_DISTANCE = 100
+const GOLDEN_SCROLLED_DISTANCE = 50
 
 export function useScrollAway() {
   const menuRef = useRef(null)

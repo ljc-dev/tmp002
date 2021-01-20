@@ -1,5 +1,5 @@
 import { useAutoScrollToTop } from "../hooks/scrollHooks";
-import ProgramsThumbComponent from "./BlogsThumbComponent";
+import ProgramsThumbComponent from "./ProgramsThumbComponent";
 
 const Programs = () => {
 

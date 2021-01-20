@@ -5,10 +5,12 @@ import Blog from './components/Blog'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import Home from './components/Home'
+import NewHome from './components/NewHome'
 import ProgramDetails from './components/ProgramDetails'
 import Programs from './components/Programs'
 import ScrollToTopBtn from './components/ScrollToTopBtn'
 import TopNav from './components/TopNav'
+import TryDraggable from './components/TryDraggable'
 function App() {
   //make smooth scroll work on all browsers
   smoothscroll.polyfill()
@@ -29,11 +31,14 @@ function App() {
         <Route path="/programs">
           <Programs />
         </Route>
+        <Route path="/blogs/:blogId">
+          <Blog />
+        </Route>
         <Route path="/blog">
           <Blog />
         </Route>
         <Route path="/">
-          <Home />
+          <TryDraggable />
         </Route>
       </Switch>
       <Footer />

@@ -39,7 +39,7 @@ const Footer = () => {
   }
 
   return (
-    <div className=" border-t border-gray-600 grid grid-cols-1 pb-10">
+    <div className="border-t border-gray-600 grid grid-cols-1 pb-10">
       <p className="text-lg px-4 mt-12 font-robo font-light">Get Great Business Tips to Your Mailbox. Subscribe.</p>
       <form onSubmit={handleSubmit} className="mt-4 px-4 grid grid-cols-1">
         <label htmlFor="emailSub">Your email *</label>
