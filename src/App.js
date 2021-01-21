@@ -4,16 +4,18 @@ import About from './components/About'
 import Blog from './components/Blog'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Home from './components/Home'
 import ProgramDetails from './components/ProgramDetails'
 import Programs from './components/Programs'
 import ScrollToTopBtn from './components/ScrollToTopBtn'
 import TopNav from './components/TopNav'
-import TryOverlays from './components/TryOverlays'
-import TryTransition from './components/TryTransitions'
+import TryTransitions from './components/TryTransitions'
 function App() {
   //make smooth scroll work on all browsers
   smoothscroll.polyfill()
-
+  return (
+    <TryTransitions />
+  )
   return (
     <Router>
       <TopNav />
@@ -37,7 +39,7 @@ function App() {
           <Blog />
         </Route>
         <Route path="/">
-          <TryTransition />
+          <Home />
         </Route>
       </Switch>
       <Footer />

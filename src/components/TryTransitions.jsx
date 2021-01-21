@@ -1,4 +1,4 @@
-import React, { createRef, useRef, useState } from 'react'
+import React, { createRef, useState } from 'react'
 import { CSSTransition, TransitionGroup } from 'react-transition-group'
 import './transition.css'
 
@@ -13,9 +13,9 @@ const initialItems = [
 const TryTransitions = () => {
   const [items, setItems] = useState(initialItems)
 
-  function clickHandler() {
-    setItems(items.slice(0, -1))
-    console.log(items);
+  function clickHandler(id) {
+    setItems(items.filter(i => i.id !== id))
+    console.log(items)
   }
 
   return (
@@ -32,7 +32,7 @@ const TryTransitions = () => {
             >
               <div ref={itemRef}>
                 {item.name}
-                <button onClick={clickHandler}>close</button>
+                <button onClick={() => clickHandler(item.id)}>close</button>
               </div>
             </CSSTransition>
           )
