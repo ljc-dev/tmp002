@@ -1,28 +1,47 @@
-import { useRef, useState } from 'react';
-import { CSSTransition, } from 'react-transition-group';
-import "./transition.css"
-const TryTransition = () => {
-  const [showMsg, setShowMsg] = useState(false)
-  const msgRef = useRef(null)
+import React, { createRef, useRef, useState } from 'react'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import './transition.css'
+
+const initialItems = [
+  { id: 100, name: "item0" },
+  { id: 101, name: "item1" },
+  { id: 102, name: "item2" },
+  { id: 103, name: "item3" },
+  { id: 104, name: "item4" },
+]
+
+const TryTransitions = () => {
+  const [items, setItems] = useState(initialItems)
+
+  function clickHandler() {
+    setItems(items.slice(0, -1))
+    console.log(items);
+  }
+
   return (
-    <div className="mt-20">
-      <button className="border border-gray-700 py-1 px-4" onClick={() => setShowMsg(!showMsg)}>click</button>
-      <CSSTransition
-        in={showMsg}
-        timeout={300}
-        unmountOnExit={true}
-        classNames="fade"
-        onEnter={(e) => console.log("enter", e)}
-        onExit={(e) => console.log("exit", e)}
-        nodeRef={msgRef}
-      >
-        <div ref={msgRef}>
-          <p className="text-2xl m-8 p-8 bg-gray-100">appearing div</p>
-          <button onClick={() => setShowMsg(false)}>close</button>
-        </div>
-      </CSSTransition>
-    </div>
-  );
+    <TransitionGroup className="mt-24">
+      {
+        items.map(item => {
+          const itemRef = createRef(null)
+          return (
+            <CSSTransition
+              classNames="fade"
+              key={item.id}
+              timeout={300}
+              nodeRef={itemRef}
+            >
+              <div ref={itemRef}>
+                {item.name}
+                <button onClick={clickHandler}>close</button>
+              </div>
+            </CSSTransition>
+          )
+        }
+        )
+      }
+    </TransitionGroup>
+  )
 }
 
-export default TryTransition;
+export default TryTransitions
+
